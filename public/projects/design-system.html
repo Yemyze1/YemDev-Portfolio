@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System - Adeyemi's Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: #f5f7fa;
+      padding: 2rem;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .section {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 0.5rem;
+    }
+
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Buttons */
+    .button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+      text-align: center;
+      display: inline-block;
+      font-size: 1rem;
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .button-secondary {
+      background: white;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
+
+    .button-secondary:hover {
+      background: #f0f1f5;
+    }
+
+    .button-success {
+      background: #10b981;
+      color: white;
+    }
+
+    .button-success:hover {
+      background: #059669;
+    }
+
+    .button-danger {
+      background: #ef4444;
+      color: white;
+    }
+
+    .button-danger:hover {
+      background: #dc2626;
+    }
+
+    /* Cards */
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .card-header {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-weight: 600;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+      color: #666;
+    }
+
+    .card-footer {
+      padding: 1rem 1.5rem;
+      background: #f8f9fa;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    /* Colors */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    .color-box {
+      border-radius: 8px;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.875rem;
+      min-height: 120px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .color-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .color-success {
+      background: #10b981;
+    }
+
+    .color-danger {
+      background: #ef4444;
+    }
+
+    .color-warning {
+      background: #f59e0b;
+    }
+
+    .color-gray {
+      background: #6b7280;
+    }
+
+    /* Forms */
+    .form-group {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      padding: 0.75rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .badge-primary {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .badge-success {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .badge-danger {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .badge-warning {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    /* Alerts */
+    .alert {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border-left: 4px solid;
+    }
+
+    .alert-info {
+      background: #dbeafe;
+      border-color: #0284c7;
+      color: #0c4a6e;
+    }
+
+    .alert-success {
+      background: #dcfce7;
+      border-color: #16a34a;
+      color: #166534;
+    }
+
+    .alert-warning {
+      background: #fef3c7;
+      border-color: #d97706;
+      color: #92400e;
+    }
+
+    .alert-danger {
+      background: #fee2e2;
+      border-color: #dc2626;
+      color: #7f1d1d;
+    }
+
+    /* Typography */
+    .typography-example {
+      margin-bottom: 1.5rem;
+    }
+
+    h1.display {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    h2.display {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    h3.display {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .text-muted {
+      color: #6b7280;
+    }
+
+    .text-small {
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Design System</h1>
+      <p>A comprehensive component library and style guide built with vanilla CSS</p>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="section">
+      <h2>Buttons</h2>
+      <div class="component-grid">
+        <button class="button button-primary">Primary Button</button>
+        <button class="button button-secondary">Secondary Button</button>
+        <button class="button button-success">Success Button</button>
+        <button class="button button-danger">Danger Button</button>
+      </div>
+    </div>
+
+    <!-- Colors Section -->
+    <div class="section">
+      <h2>Color Palette</h2>
+      <div class="color-grid">
+        <div class="color-box color-primary">Primary</div>
+        <div class="color-box color-success">Success</div>
+        <div class="color-box color-danger">Danger</div>
+        <div class="color-box color-warning">Warning</div>
+        <div class="color-box color-gray">Gray</div>
+      </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="section">
+      <h2>Cards</h2>
+      <div class="component-grid">
+        <div class="card">
+          <div class="card-header">Card Title</div>
+          <div class="card-body">This is a card component with a header, body, and optional footer.</div>
+          <div class="card-footer">
+            <button class="button button-primary">Action</button>
+            <button class="button button-secondary">Cancel</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Another Card</div>
+          <div class="card-body">Cards are versatile containers for content with hover effects and shadows.</div>
+          <div class="card-footer">
+            <button class="button button-success">Approve</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Minimal Card</div>
+          <div class="card-body">Simple card layout perfect for displaying information or starting interactions.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forms Section -->
+    <div class="section">
+      <h2>Form Elements</h2>
+      <div style="max-width: 400px;">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" class="form-input" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-input" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" class="form-select">
+            <option>Select a category</option>
+            <option>Design</option>
+            <option>Development</option>
+            <option>Marketing</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" class="form-textarea" placeholder="Type your message..."></textarea>
+        </div>
+        <button class="button button-primary">Submit</button>
+      </div>
+    </div>
+
+    <!-- Badges Section -->
+    <div class="section">
+      <h2>Badges</h2>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <span class="badge badge-primary">Primary</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-danger">Danger</span>
+        <span class="badge badge-warning">Warning</span>
+      </div>
+    </div>
+
+    <!-- Alerts Section -->
+    <div class="section">
+      <h2>Alerts</h2>
+      <div class="alert alert-info">ℹ️ Information alert: This is an informational message.</div>
+      <div class="alert alert-success">✓ Success alert: Action completed successfully!</div>
+      <div class="alert alert-warning">⚠️ Warning alert: Please review this important information.</div>
+      <div class="alert alert-danger">✕ Danger alert: An error occurred. Please try again.</div>
+    </div>
+
+    <!-- Typography Section -->
+    <div class="section">
+      <h2>Typography</h2>
+      <div class="typography-example">
+        <h1 class="display">Display Heading (3rem)</h1>
+        <p class="text-muted text-small">Used for main page titles and hero sections</p>
+      </div>
+      <div class="typography-example">
+        <h2 class="display">Section Heading (2rem)</h2>
+        <p class="text-muted text-small">Used for major section headings</p>
+      </div>
+      <div class="typography-example">
+        <h3 class="display">Subsection Heading (1.5rem)</h3>
+        <p class="text-muted text-small">Used for subsections and component titles</p>
+      </div>
+      <div class="typography-example">
+        <p>Regular paragraph text with normal font size and weight. This is the standard text style used throughout the interface.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
