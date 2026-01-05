@@ -6,7 +6,7 @@ const Contact = () => {
       <h2 className="contact-title">Get in touch</h2>
       <p className="contact-description">I'm available for freelance projects and full-time roles. Send me an email or use the contact form below.</p>
 
-      <form action="mailto:you@example.com" method="post" className="contact-form">
+      <form action="mailto:akanbiadeyemi1@gmail.com" method="post" className="contact-form">
         <div className="form-group">
           <input name="name" placeholder="Your name" className="form-input" />
         </div>

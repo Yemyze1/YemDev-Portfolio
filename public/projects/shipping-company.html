@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>BlueWave Shipping — Fast, Reliable Logistics</title>
+    <meta name="description"
+        content="BlueWave Shipping — professional freight and parcel services, live tracking demo, pricing and contact." />
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --accent: #0369a1;
+            --muted: #6b7280;
+            --shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Inter, system-ui, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+            margin: 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+            color: #0f172a
+        }
+
+        .wrap {
+
+            max-width: 95%;
+            backdrop-filter: blur(8px);
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 1rem
+        }
+
+        header {
+            padding: 1rem 0;
+            z-index: 40;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(12px);
+            width: 100%;
+            background: rgba(248, 250, 252, 0.95);
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            text-decoration: none;
+            color: inherit
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), #60a5fa);
+            color: white;
+            font-weight: 700
+        }
+
+        nav a {
+            margin-left: 1rem;
+            color: var(--muted);
+            text-decoration: none
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 2rem
+        }
+
+        .hero-inner {
+            background: var(--card);
+            padding: 1.75rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow)
+        }
+
+        .hero-title {
+            font-size: 1.6rem;
+            margin: 0 0 .5rem
+        }
+
+        .hero-sub {
+            color: var(--muted);
+            margin: 0 0 1rem
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 0.75rem
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: .6rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600
+        }
+
+        .btn-light {
+            background: transparent;
+            border: 1px solid #cbd5e1;
+            color: var(--accent)
+        }
+
+        .tracking {
+            display: flex;
+            gap: .75rem;
+            flex-wrap: wrap
+        }
+
+        .tracking input {
+            flex: 1;
+            padding: .6rem;
+            border-radius: 8px;
+            border: 1px solid #e6eef6
+        }
+
+        .tracking button {
+            padding: .6rem 1rem;
+            border-radius: 8px;
+            border: none;
+            background: #0ea5a0;
+            color: #fff
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem
+        }
+
+        .card {
+            background: var(--card);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow)
+        }
+
+        .card h4 {
+            margin: 0 0 .5rem
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        .features {
+            margin-top: 1.25rem;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 1rem
+        }
+
+        .track-demo {
+            background: linear-gradient(180deg, #0ea5a0, #026aa7);
+            border-radius: 10px;
+            color: white;
+            padding: 1rem;
+            position: relative
+        }
+
+        .track-line {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 0
+        }
+
+        .small {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, 0.9)
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 1rem 0;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        /* Responsive tweaks */
+        @media (min-width:900px) {
+            .hero {
+                grid-template-columns: 1fr 420px
+            }
+
+            .hero-title {
+                font-size: 2rem
+            }
+        }
+
+        /* simple micro-interactions */
+        .stretcher {
+            display: inline-flex;
+            gap: .5rem;
+            align-items: center
+        }
+
+        .truck {
+            width: 26px;
+            height: 26px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <a class="brand" href="/">
+                <span class="logo">BW</span>
+                <div>
+                    <div style="font-weight:700">BlueWave Shipping</div>
+                    <div style="font-size:12px;color:var(--muted)">Logistics • Freight • Parcel</div>
+                </div>
+            </a>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#tracking">Tracking</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero" id="home">
+            <div class="hero-inner">
+                <h1 class="hero-title">Fast, reliable shipping for businesses of all sizes</h1>
+                <p class="hero-sub">Nationwide freight and door-to-door parcel delivery with transparent tracking and
+                    friendly support. Competitive rates, insured shipments.</p>
+
+                <div class="tracking" id="tracking">
+                    <input id="trackingInput" placeholder="Enter tracking number (e.g. BW123456789)" />
+                    <button id="trackBtn">Track</button>
+                    <a class="btn btn-light" href="#contact">Get a quote</a>
+                </div>
+
+                <div style="margin-top:1rem" id="trackResult" class="muted">Enter a tracking number and press Track to
+                    simulate live status.</div>
+
+                <div class="services" style="margin-top:1rem">
+                    <div class="card">
+                        <h4>Express Parcel</h4>
+                        <div class="muted">Same-day pickup, 1–2 business day delivery in major cities.</div>
+                    </div>
+                    <div class="card">
+                        <h4>Freight & LTL</h4>
+                        <div class="muted">Full-truckload and less-than-truckload shipping with tracking and insurance.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4>Warehousing</h4>
+                        <div class="muted">Secure storage and fulfillment with easy inventory sync options.</div>
+                    </div>
+                    <div class="card">
+                        <h4>Customs & Compliance</h4>
+                        <div class="muted">Import/export paperwork handled by our specialists.</div>
+                    </div>
+                </div>
+            </div>
+
+            <aside>
+                <div class="track-demo">
+                    <svg class="truck" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 7h11v8H3z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M14 10h4l3 3v2" stroke="rgba(255,255,255,0.9)" stroke-width="1.2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <circle cx="7" cy="17" r="1.6" fill="white" />
+                        <circle cx="18" cy="17" r="1.6" fill="white" />
+                    </svg>
+                    <p class="track-line">Live tracking demo</p>
+                    <p class="small">Simulate real-time tracking with API polling and progress.</p>
+                    <div style="margin-top:1rem">
+                        <button id="startLiveDemo" class="btn" style="background:#06b6d4">Start Live Demo</button>
+                    </div>
+                    <div id="demoStatus" style="margin-top:1rem;color:rgba(255,255,255,0.95);font-weight:600">Status:
+                        Ready</div>
+                    <div id="demoTimestamp" style="margin-top:0.5rem;color:rgba(255,255,255,0.8);font-size:0.9rem">
+                    </div>
+                    <div style="margin-top:1rem">
+                        <div style="background:rgba(255,255,255,0.2);height:8px;border-radius:4px;overflow:hidden">
+                            <div id="progressBar"
+                                style="height:100%;width:0%;background:#06b6d4;transition:width 0.5s ease"></div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <section id="about" style="margin-top:2rem;padding:2rem 0;background:#f8fafc;border-radius:12px">
+            <div style="max-width:1100px;margin:0 auto;padding:0 1rem">
+                <h2 style="text-align:center;margin-bottom:1rem">About BlueWave Shipping</h2>
+                <p
+                    style="text-align:center;color:var(--muted);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto">
+                    Founded in 2010, BlueWave Shipping has been a leader in logistics and freight services. We combine
+                    cutting-edge technology with personalized service to deliver exceptional results for businesses of
+                    all sizes.
+                </p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem">
+                    <div class="card">
+                        <h4>Our Mission</h4>
+                        <p class="muted">To provide reliable, efficient, and transparent shipping solutions that empower
+                            businesses to grow globally.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Our Vision</h4>
+                        <p class="muted">To be the most trusted logistics partner, revolutionizing supply chains with
+                            innovation and integrity.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Our Values</h4>
+                        <p class="muted">Reliability, transparency, sustainability, and customer-centric service drive
+                            everything we do.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" style="margin-top:2rem;padding:2rem 0">
+            <div style="max-width:1100px;margin:0 auto;padding:0 1rem">
+                <h2 style="text-align:center;margin-bottom:1rem">Pricing Plans</h2>
+                <p style="text-align:center;color:var(--muted);margin-bottom:2rem">Competitive rates based on weight,
+                    distance, and service level. All plans include tracking and insurance.</p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem">
+                    <div class="card" style="border:2px solid #e6eef6">
+                        <h4>Standard</h4>
+                        <div style="font-size:2rem;font-weight:700;color:#0369a1;margin:0.5rem 0">$0.50/lb</div>
+                        <p class="muted">5-7 business days, basic tracking, $500 insurance.</p>
+                        <button class="btn" style="width:100%;margin-top:1rem">Get Quote</button>
+                    </div>
+                    <div class="card" style="border:2px solid #06b6d4;background:#f0fdff">
+                        <h4>Express</h4>
+                        <div style="font-size:2rem;font-weight:700;color:#0369a1;margin:0.5rem 0">$0.75/lb</div>
+                        <p class="muted">2-3 business days, live tracking, $1000 insurance.</p>
+                        <button class="btn" style="width:100%;margin-top:1rem;background:#06b6d4">Get Quote</button>
+                    </div>
+                    <div class="card" style="border:2px solid #7c3aed">
+                        <h4>Premium</h4>
+                        <div style="font-size:2rem;font-weight:700;color:#0369a1;margin:0.5rem 0">$1.00/lb</div>
+                        <p class="muted">Next-day delivery, priority handling, $2000 insurance.</p>
+                        <button class="btn" style="width:100%;margin-top:1rem;background:#7c3aed">Get Quote</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" style="margin-top:2rem;padding:2rem 0;background:#f8fafc;border-radius:12px">
+            <div style="max-width:1100px;margin:0 auto;padding:0 1rem">
+                <h2 style="text-align:center;margin-bottom:1rem">What Our Customers Say</h2>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem">
+                    <div class="card">
+                        <p class="muted">"BlueWave's tracking is incredible. I can see exactly where my shipments are in
+                            real-time."</p>
+                        <div style="margin-top:1rem;font-weight:600">- Sarah Johnson, E-commerce Store Owner</div>
+                    </div>
+                    <div class="card">
+                        <p class="muted">"Reliable service and great customer support. They've never let us down."</p>
+                        <div style="margin-top:1rem;font-weight:600">- Mike Chen, Manufacturing Company</div>
+                    </div>
+                    <div class="card">
+                        <p class="muted">"The pricing is competitive, and the insurance gives us peace of mind."</p>
+                        <div style="margin-top:1rem;font-weight:600">- Lisa Rodriguez, Retail Chain</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" style="margin-top:1.5rem;display:grid;grid-template-columns:1fr 320px;gap:1rem">
+            <div>
+                <h3>Contact Sales</h3>
+                <p class="muted">Email us for quotes, partnerships, or custom logistics solutions.</p>
+                <form id="contactForm" style="display:grid;gap:.5rem;max-width:520px">
+                    <input id="name" placeholder="Full name" required
+                        style="padding:.6rem;border-radius:8px;border:1px solid #e6eef6" />
+                    <input id="email" placeholder="Email" type="email" required
+                        style="padding:.6rem;border-radius:8px;border:1px solid #e6eef6" />
+                    <textarea id="message" placeholder="Tell us about your shipment" rows="4"
+                        style="padding:.6rem;border-radius:8px;border:1px solid #e6eef6"></textarea>
+                    <div style="display:flex;gap:.5rem">
+                        <button class="btn" type="submit">Send</button>
+                        <button class="btn btn-light" type="button"
+                            onclick="window.location.href='mailto:sales@bluewave.example'">Email</button>
+                    </div>
+                    <div id="contactResult" class="muted" style="margin-top:.5rem"></div>
+                </form>
+            </div>
+
+            <div>
+                <h4>Why BlueWave?</h4>
+                <ul class="muted">
+                    <li>Real-time tracking and notifications</li>
+                    <li>Insurance on all shipments</li>
+                    <li>Competitive volume discounts</li>
+                    <li>24/7 support</li>
+                </ul>
+
+                <div class="card" style="margin-top:1rem">
+                    <h4>Get a Quote</h4>
+                    <p class="muted">Pickup & delivery, weight, and distance determine rates. Use our contact form to
+                        get a tailored quote.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer style="margin-top:2rem;padding:2rem 0;border-top:1px solid #e6eef6;background:#f8fafc">
+            <div
+                style="max-width:1100px;margin:0 auto;padding:0 1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem">
+                <div>
+                    <h4>BlueWave Shipping</h4>
+                    <p class="muted">Reliable logistics and freight services for businesses worldwide.</p>
+                    <div style="margin-top:1rem">
+                        <a href="#home" style="color:var(--muted);text-decoration:none;margin-right:1rem">Home</a>
+                        <a href="#services"
+                            style="color:var(--muted);text-decoration:none;margin-right:1rem">Services</a>
+                        <a href="#tracking" style="color:var(--muted);text-decoration:none">Tracking</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul class="muted" style="list-style:none;padding:0">
+                        <li><a href="#services" style="color:var(--muted);text-decoration:none">Intra-City Delivery</a>
+                        </li>
+                        <li><a href="#services" style="color:var(--muted);text-decoration:none">Inter-State Freight</a>
+                        </li>
+                        <li><a href="#services" style="color:var(--muted);text-decoration:none">Warehousing</a></li>
+                        <li><a href="#services" style="color:var(--muted);text-decoration:none">Cross-Border</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul class="muted" style="list-style:none;padding:0">
+                        <li><a href="#contact" style="color:var(--muted);text-decoration:none">Contact Us</a></li>
+                        <li><a href="#pricing" style="color:var(--muted);text-decoration:none">Pricing</a></li>
+                        <li><a href="#tracking" style="color:var(--muted);text-decoration:none">Track Shipment</a></li>
+                        <li><a href="mailto:sales@bluewave.example"
+                                style="color:var(--muted);text-decoration:none">Email Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul class="muted" style="list-style:none;padding:0">
+                        <li><a href="#" style="color:var(--muted);text-decoration:none">Privacy Policy</a></li>
+                        <li><a href="#" style="color:var(--muted);text-decoration:none">Terms of Service</a></li>
+                        <li><a href="#" style="color:var(--muted);text-decoration:none">Insurance</a></li>
+                        <li><a href="#" style="color:var(--muted);text-decoration:none">Claims</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="max-width:1100px;margin:2rem auto 0;padding:0 1rem;text-align:center;color:var(--muted);border-top:1px solid #e6eef6;padding-top:1rem">
+                <div>© 2026 <strong>BlueWave Shipping</strong> — All rights reserved</div>
+                <div style="margin-top:0.5rem">Made by Adeyemi — <a href="/"
+                        style="color:var(--muted);text-decoration:none">Back to portfolio</a></div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Simple tracking demo
+        const trackBtn = document.getElementById('trackBtn')
+        const trackingInput = document.getElementById('trackingInput')
+        const trackResult = document.getElementById('trackResult')
+
+        function fakeStatus(id) {
+            const states = ['Label Created', 'Picked Up', 'In Transit', 'Out for Delivery', 'Delivered']
+            const idx = Math.abs(id.split('').reduce((a, b) => a + b.charCodeAt(0), 0)) % states.length
+            return states[idx]
+        }
+
+        trackBtn.addEventListener('click', () => {
+            const id = trackingInput.value.trim()
+            if (!id) { trackResult.textContent = 'Please enter a tracking number.'; return }
+            trackResult.textContent = `Tracking ${id} — ${fakeStatus(id)}`
+        })
+
+        // enhanced live tracking demo with API simulation
+        let liveInterval;
+        const statuses = ['Label Created', 'Pickup scheduled', 'Picked Up', 'In Transit', 'Out for Delivery', 'Delivered'];
+        let currentIndex = 0;
+
+        function simulateApiCall() {
+            return new Promise(resolve => {
+                setTimeout(() => resolve(), Math.random() * 2000 + 1000); // 1-3 second delay
+            });
+        }
+
+        async function updateTracking() {
+            const demoStatus = document.getElementById('demoStatus');
+            const demoTimestamp = document.getElementById('demoTimestamp');
+            const progressBar = document.getElementById('progressBar');
+
+            if (currentIndex < statuses.length) {
+                demoStatus.textContent = 'Status: Connecting...';
+                await simulateApiCall(); // Simulate API delay
+                demoStatus.textContent = `Status: ${statuses[currentIndex]}`;
+                demoTimestamp.textContent = `Updated: ${new Date().toLocaleTimeString()}`;
+                progressBar.style.width = `${(currentIndex + 1) / statuses.length * 100}%`;
+                currentIndex++;
+            } else {
+                clearInterval(liveInterval);
+                demoStatus.textContent = 'Status: Delivered ✓';
+                demoTimestamp.textContent = `Completed: ${new Date().toLocaleTimeString()}`;
+                progressBar.style.width = '100%';
+            }
+        }
+
+        document.getElementById('startLiveDemo').addEventListener('click', () => {
+            clearInterval(liveInterval);
+            currentIndex = 0;
+            document.getElementById('demoStatus').textContent = 'Status: Initializing...';
+            document.getElementById('demoTimestamp').textContent = '';
+            document.getElementById('progressBar').style.width = '0%';
+            updateTracking(); // First update
+            liveInterval = setInterval(updateTracking, 5000); // Poll every 5 seconds
+        });
+
+        // contact form stub
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault()
+            document.getElementById('contactResult').textContent = 'Thanks — we will respond within 1 business day (demo).'
+            document.getElementById('contactForm').reset()
+        })
+    </script>
+</body>
+
+</html>
